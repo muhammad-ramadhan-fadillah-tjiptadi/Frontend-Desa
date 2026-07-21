@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
 
           <a
             href="#layanan"
-            className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3 rounded-full text-xs transition-all duration-150 active:scale-95 cursor-pointer inline-flex items-center gap-2 shadow-sm shrink-0"
+            className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold px-6 py-3 rounded-full text-xs transition-all duration-150 active:scale-95 cursor-pointer inline-flex items-center gap-2 shadow-sm shrink-0"
           >
             <span>Ajukan Surat Sekarang</span>
             <ArrowUpRight className="w-4 h-4" />
@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="pt-2 text-xs space-y-2">
               <p className="flex items-start gap-2 text-slate-300">
-                <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                 <span>Jl. Raya Sukamaju No. 01, Kec. Harapan, Kab. Sukamaju, Jawa Barat 40123</span>
               </p>
             </div>
@@ -49,10 +49,10 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-white mb-4 text-xs uppercase tracking-wider">Navigasi Utama</h4>
             <ul className="space-y-2.5 text-xs">
-              <li><a href="#beranda" className="hover:text-emerald-400 transition-colors cursor-pointer">Beranda</a></li>
-              <li><a href="#profil" className="hover:text-emerald-400 transition-colors cursor-pointer">Profil Desa</a></li>
-              <li><a href="#serikat" className="hover:text-emerald-400 transition-colors cursor-pointer">Serikat & Lembaga</a></li>
-              <li><a href="#map" className="hover:text-emerald-400 transition-colors cursor-pointer">Peta Interaktif</a></li>
+              <li><a href="#beranda" className="hover:text-emerald-500 transition-colors cursor-pointer">Beranda</a></li>
+              <li><a href="#profil" className="hover:text-emerald-500 transition-colors cursor-pointer">Profil Desa</a></li>
+              <li><a href="#serikat" className="hover:text-emerald-500 transition-colors cursor-pointer">Serikat & Lembaga</a></li>
+              <li><a href="#map" className="hover:text-emerald-500 transition-colors cursor-pointer">Peta Interaktif</a></li>
             </ul>
           </div>
 
@@ -60,10 +60,10 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-white mb-4 text-xs uppercase tracking-wider">Layanan Publik</h4>
             <ul className="space-y-2.5 text-xs">
-              <li><a href="#layanan" className="hover:text-emerald-400 transition-colors cursor-pointer">Surat Keterangan Online</a></li>
-              <li><a href="#transparansi" className="hover:text-emerald-400 transition-colors cursor-pointer">Transparansi APBDes</a></li>
-              <li><a href="#umkm" className="hover:text-emerald-400 transition-colors cursor-pointer">Katalog UMKM Tani</a></li>
-              <li><a href="#berita" className="hover:text-emerald-400 transition-colors cursor-pointer">Berita & Pengumuman</a></li>
+              <li><a href="#layanan" className="hover:text-emerald-500 transition-colors cursor-pointer">Surat Keterangan Online</a></li>
+              <li><a href="#transparansi" className="hover:text-emerald-500 transition-colors cursor-pointer">Transparansi APBDes</a></li>
+              <li><a href="#umkm" className="hover:text-emerald-500 transition-colors cursor-pointer">Katalog UMKM Tani</a></li>
+              <li><a href="#berita" className="hover:text-emerald-500 transition-colors cursor-pointer">Berita & Pengumuman</a></li>
             </ul>
           </div>
 
@@ -72,15 +72,15 @@ export const Footer: React.FC = () => {
             <h4 className="font-bold text-white mb-4 text-xs uppercase tracking-wider">Kontak & Pelayanan</h4>
             <div className="space-y-3 text-xs">
               <p className="flex items-start gap-2 text-slate-300">
-                <Clock className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <Clock className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                 <span>Senin - Jumat (08.00 - 15.30 WIB)</span>
               </p>
               <p className="flex items-center gap-2 text-slate-300">
-                <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
+                <Phone className="w-4 h-4 text-emerald-500 shrink-0" />
                 <span>WA Siaga: 0812-3456-7890</span>
               </p>
               <p className="flex items-center gap-2 text-slate-300">
-                <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
+                <Mail className="w-4 h-4 text-emerald-500 shrink-0" />
                 <span>kontak@desasukamaju.go.id</span>
               </p>
             </div>
@@ -92,17 +92,17 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© 2026 Pemerintah Desa Sukamaju. Hak Cipta Dilindungi.</p>
           <div className="flex flex-wrap items-center gap-4 text-slate-400">
-            <a href="#privasi" className="hover:text-emerald-400 transition-colors flex items-center gap-1 cursor-pointer">
+            <a href="#privasi" className="hover:text-emerald-500 transition-colors flex items-center gap-1 cursor-pointer">
               <span>Kebijakan Privasi</span>
               <ArrowUpRight className="w-3 h-3" />
             </a>
             <span>•</span>
-            <a href="#syarat" className="hover:text-emerald-400 transition-colors flex items-center gap-1 cursor-pointer">
+            <a href="#syarat" className="hover:text-emerald-500 transition-colors flex items-center gap-1 cursor-pointer">
               <span>Syarat & Ketentuan</span>
               <ArrowUpRight className="w-3 h-3" />
             </a>
             <span>•</span>
-            <a href="#transparansi" className="hover:text-emerald-400 transition-colors flex items-center gap-1 cursor-pointer">
+            <a href="#transparansi" className="hover:text-emerald-500 transition-colors flex items-center gap-1 cursor-pointer">
               <span>Transparansi</span>
               <ArrowUpRight className="w-3 h-3" />
             </a>
