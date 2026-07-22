@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
         <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-10 mb-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-md">
           <div className="max-w-2xl">
             <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight mb-2">
-              Siap Menggunakan Pelayanan Digital Desa Sukamaju?
+              Siap Menggunakan Pelayanan Digital Desa Sukagalih?
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
               Akses pengurusan surat administrasi mandiri 24 jam, cek transparansi anggaran APBDes, atau hubungi tim siaga kantor desa.
@@ -32,15 +32,15 @@ export const Footer: React.FC = () => {
           {/* Column 1: Brand Info & Address */}
           <div className="space-y-4 md:col-span-1">
             <span className="font-extrabold text-lg text-white tracking-tight block">
-              Desa Sukamaju
+              Desa Sukagalih
             </span>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Pemerintah Desa Sukamaju — Mandiri, Asri & Transparan Berbasis Digital.
+              Pemerintah Desa Sukagalih — Tarogong Kidul, Garut — Desa Digital.
             </p>
             <div className="pt-2 text-xs space-y-2">
               <p className="flex items-start gap-2 text-slate-300">
                 <MapPin className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                <span>Jl. Raya Sukamaju No. 01, Kec. Harapan, Kab. Sukamaju, Jawa Barat 40123</span>
+                <span>Jl. Raya Sukagalih No. 01, Kec. Tarogong Kidul, Kab. Garut, Jawa Barat 44151</span>
               </p>
             </div>
           </div>
@@ -81,7 +81,7 @@ export const Footer: React.FC = () => {
               </p>
               <p className="flex items-center gap-2 text-slate-300">
                 <Mail className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>kontak@desasukamaju.go.id</span>
+                <span>kontak@desasukagalih.go.id</span>
               </p>
             </div>
           </div>
@@ -90,7 +90,7 @@ export const Footer: React.FC = () => {
 
         {/* 3. BOTTOM LEGAL & PILL LINKS */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2026 Pemerintah Desa Sukamaju. Hak Cipta Dilindungi.</p>
+          <p>© 2026 Pemerintah Desa Sukagalih. Hak Cipta Dilindungi.</p>
           <div className="flex flex-wrap items-center gap-4 text-slate-400">
             <a href="#privasi" className="hover:text-emerald-500 transition-colors flex items-center gap-1 cursor-pointer">
               <span>Kebijakan Privasi</span>

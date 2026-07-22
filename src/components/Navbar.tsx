@@ -62,10 +62,10 @@ export const Navbar: React.FC = () => {
           <a 
             href="#beranda" 
             className="flex items-center gap-2 group cursor-pointer focus:outline-none"
-            aria-label="Beranda Desa Sukamaju"
+            aria-label="Beranda Desa Sukagalih"
           >
             <span className="font-extrabold text-lg sm:text-xl text-slate-900 tracking-tight group-hover:text-emerald-800 transition-colors duration-150">
-              Desa Sukamaju
+              Desa Sukagalih
             </span>
           </a>
 
