@@ -6,11 +6,8 @@ import {
   ChevronRight,
   Home,
   UserCheck,
-  MapPin,
-  BarChart3,
-  Newspaper,
-  ShoppingBag,
-  Info
+  Info,
+  Activity
 } from 'lucide-react';
 
 interface NavItem {
@@ -38,12 +35,9 @@ export const Navbar: React.FC = () => {
 
   const navItems: NavItem[] = [
     { label: 'Beranda', href: '#beranda', icon: Home },
-    { label: 'Profil Desa', href: '#profil', icon: Info },
-    { label: 'Serikat & Lembaga', href: '#serikat', icon: UserCheck },
-    { label: 'Peta Interaktif', href: '#map', icon: MapPin },
-    { label: 'Statistik', href: '#statistik', icon: BarChart3 },
-    { label: 'Berita', href: '#berita', icon: Newspaper },
-    { label: 'UMKM Desa', href: '#umkm', icon: ShoppingBag },
+    { label: 'Profil', href: '#profil', icon: Info },
+    { label: 'Aparat Pemerintahan', href: '#serikat', icon: UserCheck },
+    { label: 'Statistik', href: '#statistik', icon: Activity },
   ];
 
   return (
