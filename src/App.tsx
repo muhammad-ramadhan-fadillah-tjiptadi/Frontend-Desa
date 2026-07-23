@@ -2,6 +2,9 @@ import React from 'react';
 import { Agentation } from 'agentation';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { ProfileSection } from './components/ProfileSection';
+import { OfficialsSection } from './components/OfficialsSection';
+import { DemographicsSection } from './components/DemographicsSection';
 import { Footer } from './components/Footer';
 
 const App: React.FC = () => {
@@ -10,9 +13,14 @@ const App: React.FC = () => {
       {/* Main Navbar */}
       <Navbar />
 
-      {/* Main Content: Hero Section */}
-      <main className="flex-grow">
-        <HeroSection />
+      {/* Main Content Sections */}
+      <main className="flex-grow pt-4 pb-16 bg-white font-sans">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          <HeroSection />
+          <ProfileSection />
+          <OfficialsSection />
+          <DemographicsSection />
+        </div>
       </main>
 
       {/* Footer */}
