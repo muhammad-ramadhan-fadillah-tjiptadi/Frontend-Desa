@@ -8,7 +8,8 @@ import {
   UserCheck,
   Info,
   Activity,
-  Newspaper
+  Newspaper,
+  ShoppingBag
 } from 'lucide-react';
 
 interface NavItem {
@@ -40,6 +41,7 @@ export const Navbar: React.FC = () => {
     { label: 'Aparat Pemerintahan', href: '#serikat', icon: UserCheck },
     { label: 'Statistik', href: '#statistik', icon: Activity },
     { label: 'Berita', href: '#berita', icon: Newspaper },
+    { label: 'UMKM', href: '#umkm', icon: ShoppingBag },
   ];
 
   return (

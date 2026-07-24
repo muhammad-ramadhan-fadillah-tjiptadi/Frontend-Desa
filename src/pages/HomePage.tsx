@@ -4,6 +4,7 @@ import { ProfileSection } from '../components/ProfileSection';
 import { OfficialsSection } from '../components/OfficialsSection';
 import { DemographicsSection } from '../components/DemographicsSection';
 import { NewsSection } from '../components/NewsSection';
+import { UmkmSection } from '../components/UmkmSection';
 
 const HomePage: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage: React.FC = () => {
       <OfficialsSection />
       <DemographicsSection />
       <NewsSection />
+      <UmkmSection />
     </div>
   );
 };
