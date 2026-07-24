@@ -7,7 +7,8 @@ import {
   Home,
   UserCheck,
   Info,
-  Activity
+  Activity,
+  Newspaper
 } from 'lucide-react';
 
 interface NavItem {
@@ -23,7 +24,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
+      if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -38,6 +39,7 @@ export const Navbar: React.FC = () => {
     { label: 'Profil', href: '#profil', icon: Info },
     { label: 'Aparat Pemerintahan', href: '#serikat', icon: UserCheck },
     { label: 'Statistik', href: '#statistik', icon: Activity },
+    { label: 'Berita', href: '#berita', icon: Newspaper },
   ];
 
   return (

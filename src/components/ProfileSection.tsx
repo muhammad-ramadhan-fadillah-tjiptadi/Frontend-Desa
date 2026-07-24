@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
   ArrowUpRight, 
   MapPin, 
@@ -7,11 +7,29 @@ import {
   Info, 
   UserCheck, 
   BookOpen, 
-  Target 
+  Target,
+  ChevronDown,
+  Check
 } from 'lucide-react';
+import sejarahSukagalihImg from '../assets/sejarah-sukagalih.png';
+import potensiPertanianImg from '../assets/potensi-pertanian.png';
+import potensiUmkmImg from '../assets/potensi-umkm.png';
+import potensiEkowisataImg from '../assets/potensi-ekowisata.png';
 
 export const ProfileSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'sejarah' | 'visi-misi' | 'potensi' | 'peta'>('sejarah');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <div
@@ -34,11 +52,116 @@ export const ProfileSection: React.FC = () => {
         </p>
       </div>
 
-      {/* Interactive Profile Tab Bar Menu */}
-      <div className="flex flex-wrap items-center gap-2 sm:gap-3 bg-slate-200/60 p-1.5 rounded-2xl border border-slate-200/80">
+      {/* Mobile Custom Floating Popover Dropdown (Visible on Mobile < sm) */}
+      <div className="sm:hidden w-full relative" ref={dropdownRef}>
+        <button
+          type="button"
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          className="w-full bg-slate-100 border border-slate-300/90 rounded-2xl p-1.5 flex items-center justify-between shadow-xs transition-all cursor-pointer hover:bg-slate-200/60"
+        >
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-emerald-800 text-white flex items-center justify-center shrink-0 shadow-2xs">
+              <Info className="w-4 h-4" />
+            </div>
+            <span className="text-slate-900 font-extrabold text-xs">
+              {activeTab === 'sejarah' && 'Sejarah Sukagalih'}
+              {activeTab === 'visi-misi' && 'Visi & Misi'}
+              {activeTab === 'potensi' && 'Potensi Desa'}
+              {activeTab === 'peta' && 'Peta Interaktif'}
+            </span>
+          </div>
+          <div className={`w-6 h-6 rounded-lg bg-slate-200 text-slate-700 flex items-center justify-center transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 bg-emerald-800 text-white' : ''}`}>
+            <ChevronDown className="w-3.5 h-3.5" />
+          </div>
+        </button>
+
+        {/* Floating Pill Popover Menu */}
+        {isDropdownOpen && (
+          <div className="absolute top-full left-0 right-0 mt-2 z-50 bg-white border border-slate-200 rounded-2xl shadow-xl p-2 space-y-1.5 animate-in fade-in duration-150">
+            <button
+              type="button"
+              onClick={() => {
+                setActiveTab('sejarah');
+                setIsDropdownOpen(false);
+              }}
+              className={`w-full px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
+                activeTab === 'sejarah'
+                  ? 'bg-emerald-800 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+              }`}
+            >
+              <span className="flex items-center gap-2">
+                <BookOpen className="w-3.5 h-3.5" />
+                Sejarah
+              </span>
+              {activeTab === 'sejarah' && <Check className="w-4 h-4 text-white" />}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                setActiveTab('visi-misi');
+                setIsDropdownOpen(false);
+              }}
+              className={`w-full px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
+                activeTab === 'visi-misi'
+                  ? 'bg-emerald-800 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+              }`}
+            >
+              <span className="flex items-center gap-2">
+                <Target className="w-3.5 h-3.5" />
+                Visi & Misi
+              </span>
+              {activeTab === 'visi-misi' && <Check className="w-4 h-4 text-white" />}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                setActiveTab('potensi');
+                setIsDropdownOpen(false);
+              }}
+              className={`w-full px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
+                activeTab === 'potensi'
+                  ? 'bg-emerald-800 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+              }`}
+            >
+              <span className="flex items-center gap-2">
+                <ShoppingBag className="w-3.5 h-3.5" />
+                Potensi Desa
+              </span>
+              {activeTab === 'potensi' && <Check className="w-4 h-4 text-white" />}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                setActiveTab('peta');
+                setIsDropdownOpen(false);
+              }}
+              className={`w-full px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
+                activeTab === 'peta'
+                  ? 'bg-emerald-800 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+              }`}
+            >
+              <span className="flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5" />
+                Peta Interaktif
+              </span>
+              {activeTab === 'peta' && <Check className="w-4 h-4 text-white" />}
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Desktop Horizontal Pill Tabs (Visible on >= sm) */}
+      <div className="hidden sm:flex items-center gap-2 bg-slate-200/60 p-1.5 rounded-2xl border border-slate-200/80">
         <button
           onClick={() => setActiveTab('sejarah')}
-          className={`flex-grow sm:flex-grow-0 px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
+          className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer whitespace-nowrap ${
             activeTab === 'sejarah'
               ? 'bg-emerald-800 text-white shadow-xs'
               : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
@@ -52,7 +175,7 @@ export const ProfileSection: React.FC = () => {
 
         <button
           onClick={() => setActiveTab('visi-misi')}
-          className={`flex-grow sm:flex-grow-0 px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
+          className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer whitespace-nowrap ${
             activeTab === 'visi-misi'
               ? 'bg-emerald-800 text-white shadow-xs'
               : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
@@ -66,7 +189,7 @@ export const ProfileSection: React.FC = () => {
 
         <button
           onClick={() => setActiveTab('potensi')}
-          className={`flex-grow sm:flex-grow-0 px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
+          className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer whitespace-nowrap ${
             activeTab === 'potensi'
               ? 'bg-emerald-800 text-white shadow-xs'
               : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
@@ -80,7 +203,7 @@ export const ProfileSection: React.FC = () => {
 
         <button
           onClick={() => setActiveTab('peta')}
-          className={`flex-grow sm:flex-grow-0 px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
+          className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer whitespace-nowrap ${
             activeTab === 'peta'
               ? 'bg-emerald-800 text-white shadow-xs'
               : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
@@ -97,7 +220,24 @@ export const ProfileSection: React.FC = () => {
       <div className="pt-2">
         {activeTab === 'sejarah' && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            <div className="lg:col-span-2 space-y-4 text-slate-600 text-sm leading-relaxed font-normal">
+            <div className="lg:col-span-2 space-y-5 text-slate-600 text-sm leading-relaxed font-normal">
+              {/* Featured History Image */}
+              <div className="relative rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 group">
+                <img
+                  src={sejarahSukagalihImg}
+                  alt="Kantor Kelurahan Sukagalih Tarogong Kidul Garut"
+                  loading="lazy"
+                  width={800}
+                  height={450}
+                  className="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-4">
+                  <span className="text-white text-xs font-bold tracking-wide">
+                    Kantor Kelurahan Sukagalih — Tarogong Kidul, Garut
+                  </span>
+                </div>
+              </div>
+
               <h3 className="text-lg font-extrabold text-slate-900 tracking-tight">Napak Tilas Asal Usul Sukagalih</h3>
               <p>
                 Nama <strong>Sukagalih</strong> berasal dari gabungan dua kata bahasa Sunda, yaitu <em>"Suka"</em> (senang/suka) dan <em>"Galih"</em> (hati/intuk), yang secara filosofis bermakna tempat di mana masyarakatnya senantiasa hidup tenteram, damai, dan penuh kesenangan hati.
@@ -184,52 +324,82 @@ export const ProfileSection: React.FC = () => {
           <div className="space-y-6">
             <h3 className="text-lg font-extrabold text-slate-900 tracking-tight">Sektor Unggulan Potensi Wilayah Sukagalih</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Potensi 1 */}
-              <div className="bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between h-[220px] shadow-2xs group hover:border-slate-300 transition-all">
-                <div>
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 mb-3">
+              {/* Potensi 1: Pertanian Organik */}
+              <div className="bg-white border border-slate-200/90 rounded-2xl p-5 flex flex-col justify-between min-h-[350px] shadow-2xs group hover:border-slate-300 transition-all overflow-hidden">
+                <div className="space-y-3">
+                  <div className="relative h-36 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/60">
+                    <img
+                      src={potensiPertanianImg}
+                      alt="Pertanian Organik Sukagalih"
+                      loading="lazy"
+                      width={400}
+                      height={250}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
+                  </div>
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800">
                     <MapPin className="w-4 h-4 shrink-0" />
                     <span>Pertanian Organik</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                    Kawasan sawah produktif seluas 12,5 km² yang ditopang pengairan irigasi terpadu di kaki gunung untuk padi organik unggulan.
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                    Kawasan sawah produktif seluas 12,5 km² yang ditopang pengairan irigasi terpadu di kaki Gunung Guntur untuk padi organik unggulan.
                   </p>
                 </div>
-                <a href="#profil" className="text-xs font-bold text-slate-900 group-hover:text-emerald-800 inline-flex items-center gap-1.5 transition-colors">
+                <a href="#profil" className="text-xs font-bold text-slate-900 group-hover:text-emerald-800 inline-flex items-center gap-1.5 transition-colors pt-3 border-t border-slate-100">
                   <span>Cek Lahan Pertanian</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
 
-              {/* Potensi 2 */}
-              <div className="bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between h-[220px] shadow-2xs group hover:border-slate-300 transition-all">
-                <div>
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 mb-3">
+              {/* Potensi 2: UMKM Olahan Garut */}
+              <div className="bg-white border border-slate-200/90 rounded-2xl p-5 flex flex-col justify-between min-h-[350px] shadow-2xs group hover:border-slate-300 transition-all overflow-hidden">
+                <div className="space-y-3">
+                  <div className="relative h-36 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/60">
+                    <img
+                      src={potensiUmkmImg}
+                      alt="UMKM Olahan Garut Sukagalih"
+                      loading="lazy"
+                      width={400}
+                      height={250}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
+                  </div>
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800">
                     <ShoppingBag className="w-4 h-4 shrink-0" />
                     <span>UMKM Olahan Garut</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">
                     Pemberdayaan 48+ usaha lokal meliputi industri kuliner dodol khas Garut, kerajinan anyaman bambu, dan industri rumah tangga kreatif.
                   </p>
                 </div>
-                <a href="#profil" className="text-xs font-bold text-slate-900 group-hover:text-emerald-800 inline-flex items-center gap-1.5 transition-colors">
+                <a href="#profil" className="text-xs font-bold text-slate-900 group-hover:text-emerald-800 inline-flex items-center gap-1.5 transition-colors pt-3 border-t border-slate-100">
                   <span>Lihat Katalog Produk</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
 
-              {/* Potensi 3 */}
-              <div className="bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between h-[220px] shadow-2xs group hover:border-slate-300 transition-all">
-                <div>
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 mb-3">
+              {/* Potensi 3: Ekowisata Lokal */}
+              <div className="bg-white border border-slate-200/90 rounded-2xl p-5 flex flex-col justify-between min-h-[350px] shadow-2xs group hover:border-slate-300 transition-all overflow-hidden">
+                <div className="space-y-3">
+                  <div className="relative h-36 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/60">
+                    <img
+                      src={potensiEkowisataImg}
+                      alt="Ekowisata Lokal Sukagalih"
+                      loading="lazy"
+                      width={400}
+                      height={250}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
+                  </div>
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800">
                     <UserCheck className="w-4 h-4 shrink-0" />
                     <span>Ekowisata Lokal</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">
                     Pengembangan pariwisata berbasis alam pedesaan, perkebunan terintegrasi, dan pemandangan pemukiman asri berlatar pegunungan Garut.
                   </p>
                 </div>
-                <a href="#serikat" className="text-xs font-bold text-slate-900 group-hover:text-emerald-800 inline-flex items-center gap-1.5 transition-colors">
+                <a href="#serikat" className="text-xs font-bold text-slate-900 group-hover:text-emerald-800 inline-flex items-center gap-1.5 transition-colors pt-3 border-t border-slate-100">
                   <span>Info Kelompok Sadar Wisata</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
