@@ -9,7 +9,9 @@ import {
   Info,
   Activity,
   Newspaper,
-  ShoppingBag
+  ShoppingBag,
+  Video,
+  MessageSquarePlus
 } from 'lucide-react';
 
 interface NavItem {
@@ -42,6 +44,8 @@ export const Navbar: React.FC = () => {
     { label: 'Statistik', href: '#statistik', icon: Activity },
     { label: 'Berita', href: '#berita', icon: Newspaper },
     { label: 'UMKM', href: '#umkm', icon: ShoppingBag },
+    { label: 'CCTV Live', href: '#cctv', icon: Video },
+    { label: 'Layanan', href: '#layanan', icon: MessageSquarePlus },
   ];
 
   return (
